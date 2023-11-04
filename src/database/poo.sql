@@ -1,4 +1,4 @@
--- Active: 1690290366335@@127.0.0.1@3306
+-- Active: 1699093621302@@127.0.0.1@3306
 CREATE TABLE users (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
     name TEXT NOT NULL,
@@ -26,3 +26,7 @@ INSERT INTO accounts (id, owner_id)
 VALUES
 	('a001', 'u001'),
 	('a002', 'u002');
+
+UPDATE accounts
+SET balance = 0
+WHERE id = 'a001';
