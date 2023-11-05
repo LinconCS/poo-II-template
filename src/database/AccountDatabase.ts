@@ -18,6 +18,19 @@ export class AccountDatabase extends BaseDatabase {
 
         return  accountDB
     }
+
+    public async insertAccount(newAccountDB: TAccountDB): Promise<void> {
+        await BaseDatabase
+        .connection(AccountDatabase.TABLE_ACCOUNTS)
+        .insert(newAccountDB)
+    }
+    
+    public async updateAccountBalance(id: string, newBalance: number): Promise<void> {
+        await BaseDatabase
+            .connection(AccountDatabase.TABLE_ACCOUNTS)
+            .update({ balance: newBalance })
+            .where({ id });
+    }
 }
 
 // GET ALL
